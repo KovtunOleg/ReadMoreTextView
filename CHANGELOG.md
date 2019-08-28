@@ -1,5 +1,8 @@
 #CHANGELOG
 
+##3.0.2
+- Add `hittableAreaRestricted` property
+
 ##3.0.1
 
 - Swift 4.2 support

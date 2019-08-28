@@ -210,7 +210,13 @@ public class ReadMoreTextView: UITextView {
     
     private var cachedIntrinsicContentHeight: CGFloat?
     
+    @IBInspectable
+    public var hittableAreaRestricted = true
+    
     public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        guard hittableAreaRestricted else {
+            return super.hitTest(point, with: event)
+        }
         return hitTest(pointInGliphRange: point, event: event) { _ in
             guard pointIsInReadMoreOrReadLessTextRange(point: point) != nil else { return nil }
             return self
